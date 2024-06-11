@@ -49,3 +49,5 @@ do
     opcion = Console.ReadLine();
     int.TryParse(opcion, out opcionInt);
 } while (opcionInt != 0);
+
+NuevaCalculadora.Limpiar();
