@@ -45,7 +45,7 @@ do
         default:
             break;
     }
-    Console.WriteLine("El resultado despues de la operacion concretada es: " + NuevaCalculadora.resultado + "\nPara continuar operando ingrese 1, para finalizar ingrese 0.");
+    Console.WriteLine("El resultado despues de la operacion concretada es: " + NuevaCalculadora.Dato + "\nPara continuar operando ingrese 1, para finalizar ingrese 0.");
     opcion = Console.ReadLine();
     int.TryParse(opcion, out opcionInt);
 } while (opcionInt != 0);

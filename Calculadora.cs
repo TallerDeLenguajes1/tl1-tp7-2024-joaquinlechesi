@@ -15,9 +15,9 @@ public class Calculadora {
         dato = dato / termino;
     }
     public void Limpiar (){
-        
+        dato = 0;
     }
-    public double resultado{
+    public double Dato{
         get => dato;
     }
 
