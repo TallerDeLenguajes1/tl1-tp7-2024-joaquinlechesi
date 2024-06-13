@@ -3,7 +3,7 @@ namespace EspacioEmpleado;
 public class Empleado {
     private string Nombre;
     private string Apellido;
-    private DateTime FechaNacimiendo;
+    private DateTime FechaNacimiento;
     private char EstadoCivil;
     private DateTime FechaIngreso;
     private double SueldoBasico;
@@ -14,7 +14,16 @@ public class Empleado {
         Especialista,
         Investigador
     }
-    public string S {
-        set => Nombre = value;
-    }
+    // public string S {
+    //     set => Nombre = value;
+    // }
+
+    public Empleado(string nombre, string apellido, char estadoCivil, DateTime fechaNacimiento, DateTime fechaIngreso, double sueldoBasico){ //
+        Nombre = nombre;
+        Apellido = apellido;
+        EstadoCivil = estadoCivil;
+        FechaNacimiento = fechaNacimiento;
+        FechaIngreso = fechaIngreso;
+        SueldoBasico = sueldoBasico;
+    } 
 }
