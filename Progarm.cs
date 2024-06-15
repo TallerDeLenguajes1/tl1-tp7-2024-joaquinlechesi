@@ -8,8 +8,8 @@ Console.WriteLine("Bienvenido al Sistema de Administracion del Personal.");
 
 string nombre, apellido;
 string estadoCivil, dia, mes, anio;
-string sueldo;
-int diaInt, mesInt, anioInt;
+string sueldo, tipoCargo;
+int diaInt, mesInt, anioInt, tipoCargoInt;
 double sueldoBasico;
 
 //nuevoEmpleado.S = Console.ReadLine();
@@ -46,7 +46,10 @@ for (int i = 0; i < 3; i++)
     Console.WriteLine("Ingrese el sueldo del empleado:");
     sueldo = Console.ReadLine();
     double.TryParse(sueldo, out sueldoBasico);
-    Empleado nuevoEmpleado = new Empleado(nombre, apellido, estadoCivil[0], fechaNacimiento, fechaIngreso, sueldoBasico);
+    Console.WriteLine("Ingrese el cargo que tiene el empleado:\n0 para AUXILIAR.\n1 para ADMINISTRATIVO.\n2 para INGENIERO.\n3 para ESPECIALISTA.\n4 para INVESTIGADOR.");
+    tipoCargo = Console.ReadLine();
+    int.TryParse(tipoCargo, out tipoCargoInt);
+    Empleado nuevoEmpleado = new Empleado(nombre, apellido, estadoCivil[0], fechaNacimiento, fechaIngreso, sueldoBasico, tipoCargoInt);
     Lista.Add(nuevoEmpleado);
 }
 
