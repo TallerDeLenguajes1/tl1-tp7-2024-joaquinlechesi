@@ -1,10 +1,13 @@
-﻿using System.Security.Cryptography;
+﻿using System.Globalization;
+using System.Security.Cryptography;
 using EspacioEmpleado;
 // See https://aka.ms/new-console-template for more information
 //Console.WriteLine("Hello, World!");
 
 Console.WriteLine("Bienvenido al Sistema de Administracion del Personal.");
 
+
+//Console.WriteLine("Depuracion\nLa hora actual es: "+ DateTime.Now.Day);
 
 string nombre, apellido;
 string estadoCivil, dia, mes, anio;
@@ -32,7 +35,10 @@ for (int i = 0; i < 3; i++)
     int.TryParse(dia, out diaInt);
     int.TryParse(mes, out mesInt);
     int.TryParse(anio, out anioInt);
+    //DateOnly fecha = new DateOnly(anioInt, mesInt, diaInt);
+    //TimeOnly hora = new TimeOnly();
     DateTime fechaNacimiento = new DateTime(anioInt, mesInt, diaInt);
+    Console.WriteLine("La edad del empleado es: "+ (DateTime.Now.Year - fechaNacimiento.Year));
     Console.WriteLine("Ingrese la fecha de ingreso:\nDia:");
     dia = Console.ReadLine();
     Console.WriteLine("Mes (numero):");
@@ -42,7 +48,7 @@ for (int i = 0; i < 3; i++)
     int.TryParse(dia, out diaInt);
     int.TryParse(mes, out mesInt);
     int.TryParse(anio, out anioInt);
-    DateTime fechaIngreso = new DateTime(anioInt, mesInt, diaInt);
+    DateTime fechaIngreso = new DateTime(anioInt, mesInt, diaInt, new GregorianCalendar(GregorianCalendarTypes.Localized));
     Console.WriteLine("Ingrese el sueldo del empleado:");
     sueldo = Console.ReadLine();
     double.TryParse(sueldo, out sueldoBasico);
