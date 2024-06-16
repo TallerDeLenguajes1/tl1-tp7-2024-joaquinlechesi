@@ -45,4 +45,8 @@ public class Empleado {
     public int AnioIngreso {
         get => FechaIngreso.Year;
     }
+
+    public int Edad {
+        get => FechaNacimiento.Year;
+    }
 }

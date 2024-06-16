@@ -59,10 +59,14 @@ for (int i = 0; i < 3; i++)
     Lista.Add(nuevoEmpleado);
 }
 
-int contador;
+int contador = 0;
 foreach (var item in Lista)
 {
-    Console.WriteLine("Empleado" + contador++);
+    Console.WriteLine("Empleado nº: " + (contador+1));
+    Console.WriteLine("La edad del empleado es: " + (DateTime.Now.Year - Lista[contador].Edad));
+    Console.WriteLine("La antiguedad del empleado es: " + (DateTime.Now.Year - Lista[contador].AnioIngreso));
+    Console.WriteLine("Al empleado le faltan un total de: "+ (65 - (DateTime.Now.Year - Lista[contador].Edad)) + " años para jubilarse.");
+    contador++;
 }
 
 // do
