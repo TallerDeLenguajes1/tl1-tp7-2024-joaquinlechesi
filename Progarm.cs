@@ -59,6 +59,12 @@ for (int i = 0; i < 3; i++)
     Lista.Add(nuevoEmpleado);
 }
 
+int contador;
+foreach (var item in Lista)
+{
+    Console.WriteLine("Empleado" + contador++);
+}
+
 // do
 // {
 //     int.TryParse(opcion, out opcionInt);

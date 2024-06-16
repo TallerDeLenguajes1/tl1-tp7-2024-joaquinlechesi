@@ -21,6 +21,7 @@ public class Empleado {
     //     set => Nombre = value;
     // }
 
+    //CONSTRUCTOR
     public Empleado(string nombre, string apellido, char estadoCivil, DateTime fechaNacimiento, DateTime fechaIngreso, double sueldoBasico, int tipo){ //
         Nombre = nombre;
         Apellido = apellido;
@@ -38,5 +39,10 @@ public class Empleado {
                 
         //         break;
         //}
-    } 
+    }
+
+    //METODO
+    public int AnioIngreso {
+        get => FechaIngreso.Year;
+    }
 }
