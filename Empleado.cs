@@ -49,4 +49,7 @@ public class Empleado {
     public int Edad {
         get => FechaNacimiento.Year;
     }
+    public double sueldoBasico {
+        get => SueldoBasico;
+    }
 }
