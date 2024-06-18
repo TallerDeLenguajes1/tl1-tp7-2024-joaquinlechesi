@@ -3,12 +3,12 @@ using System.Reflection.Metadata;
 namespace EspacioEmpleado;
 
 public class Empleado {
-    private string Nombre;
-    private string Apellido;
-    private DateTime FechaNacimiento;
-    private char EstadoCivil;
-    private DateTime FechaIngreso;
-    private double SueldoBasico;
+    private string nombre;
+    private string apellido;
+    private DateTime fechaNacimiento;
+    private char estadoCivil;
+    private DateTime fechaIngreso;
+    private double sueldoBasico;
     private enum Cargos {
         Auxiliar,
         Administrativo,
@@ -22,14 +22,14 @@ public class Empleado {
     // }
 
     //CONSTRUCTOR
-    public Empleado(string nombre, string apellido, char estadoCivil, DateTime fechaNacimiento, DateTime fechaIngreso, double sueldoBasico, int tipo){ //
-        Nombre = nombre;
-        Apellido = apellido;
-        EstadoCivil = estadoCivil;
-        FechaNacimiento = fechaNacimiento;
-        FechaIngreso = fechaIngreso;
-        SueldoBasico = sueldoBasico;
-        tipoCargo = (Cargos)tipo;
+    public Empleado(string parametroNombre, string parametroApellido, char parametroEstadoCivil, DateTime parametroFechaNacimiento, DateTime parametroFechaIngreso, double parametroSueldoBasico, int parametroTipo){ //
+        nombre = parametroNombre;
+        apellido = parametroApellido;
+        estadoCivil = parametroEstadoCivil;
+        fechaNacimiento = parametroFechaNacimiento;
+        fechaIngreso = parametroFechaIngreso;
+        sueldoBasico = parametroSueldoBasico;
+        tipoCargo = (Cargos)parametroTipo;
         // switch (tipo)
         // {
         //     case 1:
@@ -43,13 +43,35 @@ public class Empleado {
 
     //METODO
     public int AnioIngreso {
-        get => FechaIngreso.Year;
+        get => fechaIngreso.Year;
     }
 
     public int Edad {
-        get => FechaNacimiento.Year;
+        get => fechaNacimiento.Year;
     }
-    public double sueldoBasico {
-        get => SueldoBasico;
+    public double SueldoBasico {
+        get => sueldoBasico;
+    }
+    public char EstadoCivil {
+        get => estadoCivil;
+    }
+    public void salario() {
+        double adicional = 0;
+        double antiguedad = DateTime.Now.Year - AnioIngreso;
+        if (antiguedad <= 20)
+        {
+            adicional = (adicional * (sueldoBasico * 0.1));
+        }else
+        {
+            adicional = (adicional * (sueldoBasico * 0.25));
+        }
+        if (tipoCargo == Cargos.Ingeniero || tipoCargo == Cargos.Especialista)//
+        {
+            adicional = adicional + (adicional/2);
+        }
+        if (EstadoCivil == 'C')
+        {
+            adicional = adicional + 150.000;
+        }
     }
 }

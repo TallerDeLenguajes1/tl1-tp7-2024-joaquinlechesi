@@ -69,6 +69,18 @@ foreach (var item in Lista)
     contador++;
 }
 
+Console.WriteLine("Sueldo basico del empleado");
+contador = 0;
+foreach (var item in Lista)
+{
+    Console.WriteLine("");
+    contador++;
+}
+// do
+// {
+// } while (true);
+//Empleado.calcularSalario(sueldoBasico);
+
 // do
 // {
 //     int.TryParse(opcion, out opcionInt);
