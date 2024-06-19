@@ -63,17 +63,18 @@ int contador = 0;
 foreach (var item in Lista)
 {
     Console.WriteLine("Empleado nº: " + (contador+1));
-    Console.WriteLine("La edad del empleado es: " + (DateTime.Now.Year - Lista[contador].Edad));
+    //Console.WriteLine("La edad del empleado es: " + (DateTime.Now.Year - Lista[contador].Edad));
     Console.WriteLine("La antiguedad del empleado es: " + (DateTime.Now.Year - Lista[contador].AnioIngreso));
-    Console.WriteLine("Al empleado le faltan un total de: "+ (65 - (DateTime.Now.Year - Lista[contador].Edad)) + " años para jubilarse.");
+    //Console.WriteLine("Al empleado le faltan un total de: "+ (65 - (DateTime.Now.Year - Lista[contador].Edad)) + " años para jubilarse.");
     contador++;
 }
 
 Console.WriteLine("Sueldo basico del empleado");
 contador = 0;
-foreach (var item in Lista)
+foreach (var empleado in Lista)
 {
-    Console.WriteLine("");
+    Console.WriteLine("Empleado: " + (contador + 1));
+    Console.WriteLine("El salario correspondiente al empleado es de: " + empleado.Salario);
     contador++;
 }
 // do

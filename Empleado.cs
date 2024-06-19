@@ -16,11 +16,12 @@ public class Empleado {
         Especialista,
         Investigador
     }
+    private int edad;
+    private double salario;
     Cargos tipoCargo;
     // public string S {
     //     set => Nombre = value;
     // }
-
     //CONSTRUCTOR
     public Empleado(string parametroNombre, string parametroApellido, char parametroEstadoCivil, DateTime parametroFechaNacimiento, DateTime parametroFechaIngreso, double parametroSueldoBasico, int parametroTipo){ //
         nombre = parametroNombre;
@@ -40,14 +41,20 @@ public class Empleado {
         //         break;
         //}
     }
-
     //METODO
+    public double Salario {
+        get => salario;
+        set => salario = value;
+    }
     public int AnioIngreso {
         get => fechaIngreso.Year;
     }
-
-    public int Edad {
+    public int FechaNacimiento {
         get => fechaNacimiento.Year;
+    }
+    public int Edad {
+        get => edad;
+        set => edad = value;
     }
     public double SueldoBasico {
         get => sueldoBasico;
@@ -55,8 +62,8 @@ public class Empleado {
     public char EstadoCivil {
         get => estadoCivil;
     }
-    public void salario() {
-        double adicional = 0;
+    public void fichaEmpleado() {
+        double adicional = 0, aux;
         double antiguedad = DateTime.Now.Year - AnioIngreso;
         if (antiguedad <= 20)
         {
@@ -73,5 +80,8 @@ public class Empleado {
         {
             adicional = adicional + 150.000;
         }
+        aux = sueldoBasico + adicional;
+        Salario = aux;
     }
+    
 }
