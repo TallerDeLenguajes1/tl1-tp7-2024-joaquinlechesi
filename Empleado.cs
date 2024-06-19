@@ -17,11 +17,9 @@ public class Empleado {
         Investigador
     }
     private int edad;
+    private int antiguedad;
     private double salario;
-    Cargos tipoCargo;
-    // public string S {
-    //     set => Nombre = value;
-    // }
+    private Cargos tipoCargo;
     //CONSTRUCTOR
     public Empleado(string parametroNombre, string parametroApellido, char parametroEstadoCivil, DateTime parametroFechaNacimiento, DateTime parametroFechaIngreso, double parametroSueldoBasico, int parametroTipo){ //
         nombre = parametroNombre;
@@ -31,30 +29,25 @@ public class Empleado {
         fechaIngreso = parametroFechaIngreso;
         sueldoBasico = parametroSueldoBasico;
         tipoCargo = (Cargos)parametroTipo;
-        // switch (tipo)
-        // {
-        //     case 1:
-        //         //tipoCargo(1);
-        //         break;
-        //     case 2:
-                
-        //         break;
-        //}
     }
     //METODO
+    public int Edad {
+        get => edad;
+        set => edad = value;
+    }
+    public int Antiguedad {
+        get => antiguedad;
+        set => antiguedad = value;
+    }
     public double Salario {
         get => salario;
         set => salario = value;
     }
-    public int AnioIngreso {
+    public int FechaIngreso {
         get => fechaIngreso.Year;
     }
     public int FechaNacimiento {
         get => fechaNacimiento.Year;
-    }
-    public int Edad {
-        get => edad;
-        set => edad = value;
     }
     public double SueldoBasico {
         get => sueldoBasico;
@@ -63,9 +56,14 @@ public class Empleado {
         get => estadoCivil;
     }
     public void fichaEmpleado() {
+        //Calculo de la edad
+        Edad = DateTime.Now.Year - FechaNacimiento;
+        //Calculo la antiguiedad
+        Antiguedad = DateTime.Now.Year - FechaIngreso;
+        //Calculo del Salario
         double adicional = 0, aux;
-        double antiguedad = DateTime.Now.Year - AnioIngreso;
-        if (antiguedad <= 20)
+        //double antiguedad = DateTime.Now.Year - FechaIngreso;
+        if (Antiguedad <= 20)
         {
             adicional = (adicional * (sueldoBasico * 0.1));
         }else
