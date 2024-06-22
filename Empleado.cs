@@ -17,7 +17,8 @@ public class Empleado {
         Investigador
     }
     private int edad;
-    private int antiguedad;
+    //private int antiguedad;
+    private int restanteJuvilacion;
     private double salario;
     private Cargos tipoCargo;
     //CONSTRUCTOR
@@ -35,18 +36,22 @@ public class Empleado {
         get => edad;
         set => edad = value;
     }
-    public int Antiguedad {
-        get => antiguedad;
-        set => antiguedad = value;
+    // public int Antiguedad {
+    //     get => antiguedad;
+    //     set => antiguedad = value;
+    // }
+    public int RestanteJulilacion {
+        get => restanteJuvilacion;
+        set => restanteJuvilacion = value;
     }
     public double Salario {
         get => salario;
         set => salario = value;
     }
-    public int FechaIngreso {
+    public int AñoIngreso {
         get => fechaIngreso.Year;
     }
-    public int FechaNacimiento {
+    public int AñoNacimiento {
         get => fechaNacimiento.Year;
     }
     public double SueldoBasico {
@@ -55,31 +60,48 @@ public class Empleado {
     public char EstadoCivil {
         get => estadoCivil;
     }
+    //Calculo de la edad
+    //Edad = DateTime.Now.Year - FechaNacimiento;
+    public int calcularantiguedad() {
+        int antiguedad = 0;
+        antiguedad = DateTime.Now.Year - AñoIngreso;
+        return antiguedad;
+    }
+    public int calcularEdad() {
+        int edadEmpleado = 0;
+        edadEmpleado = DateTime.Now.Year - AñoNacimiento;
+        return edadEmpleado;
+    }
+    public int aniosRestantesJubilacion() {
+        int aniosRestantes = 0;
+        aniosRestantes = 65 - calcularEdad();
+        return aniosRestantes;
+    }
     public void fichaEmpleado() {
-        //Calculo de la edad
-        Edad = DateTime.Now.Year - FechaNacimiento;
-        //Calculo la antiguiedad
-        Antiguedad = DateTime.Now.Year - FechaIngreso;
-        //Calculo del Salario
-        double adicional = 0, aux;
-        //double antiguedad = DateTime.Now.Year - FechaIngreso;
-        if (Antiguedad <= 20)
-        {
-            adicional = (adicional * (sueldoBasico * 0.1));
-        }else
-        {
-            adicional = (adicional * (sueldoBasico * 0.25));
-        }
-        if (tipoCargo == Cargos.Ingeniero || tipoCargo == Cargos.Especialista)//
-        {
-            adicional = adicional + (adicional/2);
-        }
-        if (EstadoCivil == 'C')
-        {
-            adicional = adicional + 150.000;
-        }
-        aux = sueldoBasico + adicional;
-        Salario = aux;
+        // //Calculo la antiguiedad
+        // Antiguedad = DateTime.Now.Year - FechaIngreso;
+        // //Calculo los años restantes para la juvilacion
+        // RestanteJulilacion = 65 - Edad;
+        // //Calculo del Salario
+        // double adicional = 0, aux;
+        // //double antiguedad = DateTime.Now.Year - FechaIngreso;
+        // if (Antiguedad <= 20)
+        // {
+        //     adicional = (adicional * (sueldoBasico * 0.1));
+        // }else
+        // {
+        //     adicional = (adicional * (sueldoBasico * 0.25));
+        // }
+        // if (tipoCargo == Cargos.Ingeniero || tipoCargo == Cargos.Especialista)//
+        // {
+        //     adicional = adicional + (adicional/2);
+        // }
+        // if (EstadoCivil == 'C')
+        // {
+        //     adicional = adicional + 150.000;
+        // }
+        // aux = sueldoBasico + adicional;
+        // Salario = aux;
     }
     
 }

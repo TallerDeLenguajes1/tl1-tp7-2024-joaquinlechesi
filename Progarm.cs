@@ -18,7 +18,7 @@ double sueldoBasico;
 //nuevoEmpleado.S = Console.ReadLine();
 
 List<Empleado> Lista = new List<Empleado>(); //defino una lista (arreglo)
-for (int i = 0; i < 3; i++)
+for (int i = 0; i < 1; i++)
 {
     Console.WriteLine("Empleado n°: " + (i+1).ToString() +"\nIngrese los datos del empleado\nIngrese el nombre:");
     nombre = Console.ReadLine();
@@ -38,7 +38,7 @@ for (int i = 0; i < 3; i++)
     //DateOnly fecha = new DateOnly(anioInt, mesInt, diaInt);
     //TimeOnly hora = new TimeOnly();
     DateTime fechaNacimiento = new DateTime(anioInt, mesInt, diaInt);
-    Console.WriteLine("La edad del empleado es: "+ (DateTime.Now.Year - fechaNacimiento.Year));
+    //Console.WriteLine("La edad del empleado es: "+ (DateTime.Now.Year - fechaNacimiento.Year));
     Console.WriteLine("Ingrese la fecha de ingreso:\nDia:");
     dia = Console.ReadLine();
     Console.WriteLine("Mes (numero):");
@@ -48,7 +48,7 @@ for (int i = 0; i < 3; i++)
     int.TryParse(dia, out diaInt);
     int.TryParse(mes, out mesInt);
     int.TryParse(anio, out anioInt);
-    DateTime fechaIngreso = new DateTime(anioInt, mesInt, diaInt, new GregorianCalendar(GregorianCalendarTypes.Localized));
+    DateTime fechaIngreso = new DateTime(anioInt, mesInt, diaInt);
     Console.WriteLine("Ingrese el sueldo del empleado:");
     sueldo = Console.ReadLine();
     double.TryParse(sueldo, out sueldoBasico);
@@ -63,21 +63,22 @@ int contador = 0;
 foreach (var empleado in Lista)
 {
     Console.WriteLine("Empleado nº: " + (contador+1));
-    //Console.WriteLine("La edad del empleado es: " + (DateTime.Now.Year - Lista[contador].Edad));
-    //Console.WriteLine("La antiguedad del empleado es: " + (DateTime.Now.Year - Lista[contador].AnioIngreso));
-    //Console.WriteLine("Al empleado le faltan un total de: "+ (65 - (DateTime.Now.Year - Lista[contador].Edad)) + " años para jubilarse.");
+    Console.WriteLine("La antiguedad del empleado es: " + empleado.calcularantiguedad());
+    Console.WriteLine("La edad del empleado es: " + empleado.calcularEdad());
+    Console.WriteLine("Al empleado le faltan un total de: " + empleado.aniosRestantesJubilacion() + " años para jubilarse.");
+    //Console.WriteLine("El SALARIO del empleado es: " + empleado.Salario);
     
-    contador++;
+    //contador++;
 }
 
-Console.WriteLine("Sueldo basico del empleado");
-contador = 0;
-foreach (var empleado in Lista)
-{
-    Console.WriteLine("Empleado: " + (contador + 1));
-    Console.WriteLine("El salario correspondiente al empleado es de: " + empleado.Salario);
-    contador++;
-}
+// Console.WriteLine("Sueldo basico del empleado");
+// contador = 0;
+// foreach (var empleado in Lista)
+// {
+//     Console.WriteLine("Empleado: " + (contador + 1));
+//     Console.WriteLine("El salario correspondiente al empleado es de: " + empleado.Salario);
+//     contador++;
+// }
 // do
 // {
 // } while (true);
