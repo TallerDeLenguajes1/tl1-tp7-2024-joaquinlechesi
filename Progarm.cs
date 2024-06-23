@@ -60,16 +60,19 @@ for (int i = 0; i < 1; i++)
 }
 
 int contador = 0;
+double totalSueldos = 0;
 foreach (var empleado in Lista)
 {
     Console.WriteLine("Empleado nº: " + (contador+1));
-    Console.WriteLine("La antiguedad del empleado es: " + empleado.calcularantiguedad());
+    Console.WriteLine("La antiguedad del empleado es: " + empleado.calcularAntiguedad());
     Console.WriteLine("La edad del empleado es: " + empleado.calcularEdad());
     Console.WriteLine("Al empleado le faltan un total de: " + empleado.aniosRestantesJubilacion() + " años para jubilarse.");
-    //Console.WriteLine("El SALARIO del empleado es: " + empleado.Salario);
-    
-    //contador++;
+    Console.WriteLine("El Adicional del empleado es: $" + empleado.calcularSalario());
+    Console.WriteLine("El SALARIO del empleado es de: $" + (empleado.SueldoBasico + empleado.calcularSalario()));
+    contador++;
+    totalSueldos = totalSueldos + empleado.calcularSalario();
 }
+Console.WriteLine("El total a pagar en conceptos sueldos es: " + totalSueldos);
 
 // Console.WriteLine("Sueldo basico del empleado");
 // contador = 0;
