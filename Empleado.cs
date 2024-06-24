@@ -48,6 +48,12 @@ public class Empleado {
     //     get => salario;
     //     set => salario = value;
     // }
+    public string Nombre {
+        get => nombre;
+    }
+    public string Apellido {
+        get => apellido;
+    }
     public int AñoIngreso {
         get => fechaIngreso.Year;
     }

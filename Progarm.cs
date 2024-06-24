@@ -18,7 +18,7 @@ double sueldoBasico;
 //nuevoEmpleado.S = Console.ReadLine();
 
 List<Empleado> Lista = new List<Empleado>(); //defino una lista (arreglo)
-for (int i = 0; i < 1; i++)
+for (int i = 0; i < 3; i++)
 {
     Console.WriteLine("Empleado n°: " + (i+1).ToString() +"\nIngrese los datos del empleado\nIngrese el nombre:");
     nombre = Console.ReadLine();
@@ -59,20 +59,25 @@ for (int i = 0; i < 1; i++)
     Lista.Add(nuevoEmpleado);
 }
 
-int contador = 0;
+int contador = 0, mayorEdad = 0;
 double totalSueldos = 0;
 foreach (var empleado in Lista)
 {
-    Console.WriteLine("Empleado nº: " + (contador+1));
-    Console.WriteLine("La antiguedad del empleado es: " + empleado.calcularAntiguedad());
-    Console.WriteLine("La edad del empleado es: " + empleado.calcularEdad());
-    Console.WriteLine("Al empleado le faltan un total de: " + empleado.aniosRestantesJubilacion() + " años para jubilarse.");
-    Console.WriteLine("El Adicional del empleado es: $" + empleado.calcularSalario());
-    Console.WriteLine("El SALARIO del empleado es de: $" + (empleado.SueldoBasico + empleado.calcularSalario()));
-    contador++;
-    totalSueldos = totalSueldos + empleado.calcularSalario();
+    if (empleado.calcularEdad() > mayorEdad)
+    {
+        mayorEdad = empleado.calcularEdad();
+        contador++;
+    }
 }
-Console.WriteLine("El total a pagar en conceptos sueldos es: " + totalSueldos);
+Console.WriteLine("El total a pagar en conceptos sueldos es: $" + totalSueldos);
+Console.WriteLine("EMPLEADO MÁS PROXIMO A JUVILARSE:");
+Console.WriteLine("Nombre y apellido del empleado:" + Lista[contador - 1].Nombre + " " + Lista[contador - 1].Apellido);
+Console.WriteLine("La antiguedad del empleado es: " + Lista[contador - 1].calcularAntiguedad());
+Console.WriteLine("La edad del empleado es: " + Lista[contador - 1].calcularEdad());
+Console.WriteLine("Al empleado le faltan un total de: " + Lista[contador - 1].aniosRestantesJubilacion() + " años para jubilarse.");
+Console.WriteLine("El Adicional del empleado es: $" + Lista[contador - 1].calcularSalario());
+Console.WriteLine("El SALARIO del empleado es de: $" + (Lista[contador - 1].SueldoBasico + Lista[contador - 1].calcularSalario()));
+totalSueldos = totalSueldos + Lista[contador - 1].calcularSalario();
 
 // Console.WriteLine("Sueldo basico del empleado");
 // contador = 0;
